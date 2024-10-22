@@ -1,0 +1,8 @@
+
+export VM_AGENTS_TEST_SUBSCRIPTION_ID="01f7bf38-c5be-4f05-a9da-f09d513b1e31"
+export VM_AGENTS_TEST_CLIENT_ID="560abbf9-f8fe-4930-a304-49fa6fd9612a"
+export VM_AGENTS_TEST_CLIENT_SECRET=$(cat ~/.ssh/azure-secrets.txt)
+export VM_AGENTS_TEST_TENANT_ID="39b03722-b836-496a-85ec-850f0957ca6b"
+
+az login --service-principal --username ${VM_AGENTS_TEST_CLIENT_ID} --password ${VM_AGENTS_TEST_CLIENT_SECRET} --tenant ${VM_AGENTS_TEST_TENANT_ID}
+az account set --subscription azure-intelligent-solutions-group-devl
