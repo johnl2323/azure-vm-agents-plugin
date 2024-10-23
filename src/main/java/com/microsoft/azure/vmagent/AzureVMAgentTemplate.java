@@ -58,6 +58,7 @@ import hudson.security.ACL;
 import hudson.slaves.Cloud;
 import hudson.slaves.NodeProperty;
 import hudson.slaves.NodePropertyDescriptor;
+import hudson.slaves.AbstractCloudSlave;
 import hudson.slaves.RetentionStrategy;
 import hudson.util.DescribableList;
 import hudson.util.FormApply;
@@ -1970,9 +1971,9 @@ public class AzureVMAgentTemplate implements Describable<AzureVMAgentTemplate>, 
             return FormValidation.ok();
         }
 
-//        public List<NodePropertyDescriptor> getNodePropertyDescriptors() {
-//            return NodePropertyDescriptor.for_(NodeProperty.all(), EC2AbstractSlave.class);
-//        }
+        public List<NodePropertyDescriptor> getNodePropertyDescriptors() {
+            return NodePropertyDescriptor.for_(NodeProperty.all(), AbstractCloudSlave.class);
+        }
 
         @POST
         public FormValidation doVerifyConfiguration(
